@@ -38,11 +38,13 @@
             this.textBoxSENHA = new System.Windows.Forms.TextBox();
             this.textBoxCONFSENHA = new System.Windows.Forms.TextBox();
             this.comboBoxPERMISSAO = new System.Windows.Forms.ComboBox();
+            this.dataGridUSUARIOS = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUSUARIOS)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCADASTRO
             // 
-            this.buttonCADASTRO.Location = new System.Drawing.Point(560, 350);
+            this.buttonCADASTRO.Location = new System.Drawing.Point(437, 121);
             this.buttonCADASTRO.Name = "buttonCADASTRO";
             this.buttonCADASTRO.Size = new System.Drawing.Size(75, 23);
             this.buttonCADASTRO.TabIndex = 0;
@@ -128,11 +130,20 @@
             this.comboBoxPERMISSAO.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPERMISSAO.TabIndex = 12;
             // 
+            // dataGridUSUARIOS
+            // 
+            this.dataGridUSUARIOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridUSUARIOS.Location = new System.Drawing.Point(47, 256);
+            this.dataGridUSUARIOS.Name = "dataGridUSUARIOS";
+            this.dataGridUSUARIOS.Size = new System.Drawing.Size(525, 262);
+            this.dataGridUSUARIOS.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(609, 543);
+            this.Controls.Add(this.dataGridUSUARIOS);
             this.Controls.Add(this.comboBoxPERMISSAO);
             this.Controls.Add(this.textBoxCONFSENHA);
             this.Controls.Add(this.textBoxSENHA);
@@ -145,6 +156,7 @@
             this.Controls.Add(this.buttonCADASTRO);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUSUARIOS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,6 +174,7 @@
         private System.Windows.Forms.TextBox textBoxSENHA;
         private System.Windows.Forms.TextBox textBoxCONFSENHA;
         private System.Windows.Forms.ComboBox comboBoxPERMISSAO;
+        private System.Windows.Forms.DataGridView dataGridUSUARIOS;
     }
 }
 

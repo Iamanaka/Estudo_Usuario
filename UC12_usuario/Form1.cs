@@ -40,7 +40,7 @@ namespace UC12_usuario
                     permissao = "Cliente";
                 }
                 string data_cadastro = DateTime.Now.ToString("yyyy-MM-dd"); //formata a data para o padrão do banco de dados
-                MySQLConexao.conexao.Open();
+                
 
                 if (textBoxNOME.Text == "") //verifica se o campo nome está vazio
                 {
@@ -76,6 +76,7 @@ namespace UC12_usuario
                     textBoxSENHA.Focus(); //foca no campo senha
                     return; //retorna para o início do método
                 }
+                MySQLConexao.conexao.Open();
                 MySQLConexao.comando.CommandText = "INSERT INTO tbl_usuario (nome, email, senha,data_cad,permissao) VALUES ('" + textBoxNOME.Text + "','" + textBoxEMAIL.Text + "','" + textBoxSENHA.Text + "','" + data_cadastro + "','" + permissao + "');"; //instrução SQL para inserir os dados no banco de dados
 
                 try  //tentativa
