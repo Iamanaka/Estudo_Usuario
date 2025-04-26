@@ -39,6 +39,7 @@
             this.textBoxCONFSENHA = new System.Windows.Forms.TextBox();
             this.comboBoxPERMISSAO = new System.Windows.Forms.ComboBox();
             this.dataGridUSUARIOS = new System.Windows.Forms.DataGridView();
+            this.buttonDEL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUSUARIOS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,11 +139,25 @@
             this.dataGridUSUARIOS.Size = new System.Drawing.Size(525, 262);
             this.dataGridUSUARIOS.TabIndex = 13;
             // 
+            // buttonDEL
+            // 
+            this.buttonDEL.BackColor = System.Drawing.Color.Red;
+            this.buttonDEL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDEL.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonDEL.Location = new System.Drawing.Point(437, 161);
+            this.buttonDEL.Name = "buttonDEL";
+            this.buttonDEL.Size = new System.Drawing.Size(75, 23);
+            this.buttonDEL.TabIndex = 14;
+            this.buttonDEL.Text = "Apagar";
+            this.buttonDEL.UseVisualStyleBackColor = false;
+            this.buttonDEL.Click += new System.EventHandler(this.buttonDEL_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 543);
+            this.Controls.Add(this.buttonDEL);
             this.Controls.Add(this.dataGridUSUARIOS);
             this.Controls.Add(this.comboBoxPERMISSAO);
             this.Controls.Add(this.textBoxCONFSENHA);
@@ -156,6 +171,7 @@
             this.Controls.Add(this.buttonCADASTRO);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUSUARIOS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -175,6 +191,7 @@
         private System.Windows.Forms.TextBox textBoxCONFSENHA;
         private System.Windows.Forms.ComboBox comboBoxPERMISSAO;
         private System.Windows.Forms.DataGridView dataGridUSUARIOS;
+        private System.Windows.Forms.Button buttonDEL;
     }
 }
 
