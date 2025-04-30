@@ -9,7 +9,7 @@ namespace UC12_usuario
 {
     internal class MySQLConexao
     {
-        public static string servidor = "Server=10.55.51.43;Database=bd_usuario;Uid=b2024;Pwd=P@ssw0rd";
+        public static string servidor = "Server=10.55.51.37;Database=iamanaka_bd_usuarios;Uid=senac;Pwd=senac2025";
 
         public static MySqlConnection conexao = null;
         public static MySqlCommand comando = null;
