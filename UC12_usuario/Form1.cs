@@ -15,9 +15,14 @@ namespace UC12_usuario
     {
         string idalterar;
         string permissao;
+        string pesquisar;
+
         public Form1()
         {
             InitializeComponent();
+
+            pesquisar = "";
+
             MySQLConexao.conexao = new MySqlConnection(MySQLConexao.servidor);
             MySQLConexao.comando = MySQLConexao.conexao.CreateCommand();
             preecheDataGridUSUARIOS(); //chama o método para preencher o DataGridView com os dados do banco de dados
@@ -30,8 +35,8 @@ namespace UC12_usuario
         private void preecheDataGridUSUARIOS() //preenche o DataGridView com os dados do banco de dados PROCEDIMENTO
         {
             MySQLConexao.conexao.Open(); //abrindo a conexão com o banco de dados
-            MySQLConexao.comando.CommandText = "SELECT * FROM tbl_usuario"; //instrução SQL para selecionar todos os dados da tabela tbl_usuario
-
+            //MySQLConexao.comando.CommandText = "SELECT * FROM tbl_usuario"; //instrução SQL para selecionar todos os dados da tabela tbl_usuario
+            MySQLConexao.comando.CommandText = "SELECT * FROM tbl_usuario" + pesquisar + ";";
 
             MySqlDataAdapter adaptador = new MySqlDataAdapter(MySQLConexao.comando); //cria um adaptador para preencher o DataGridView
             DataTable TabelaUSUARIOS = new DataTable(); //cria uma tabela para armazenar os dados
@@ -110,10 +115,13 @@ namespace UC12_usuario
                     {
                         if (textBoxSENHA.Text != textBoxCONFSENHA.Text) //verifica se as senhas são iguais
                         {
-                            labelCONF.Image = Properties.Resources.x; 
-                            MessageBox.Show("As senhas não conferem!"); //mensagem de erro
-                            textBoxSENHA.Focus(); //foca no campo senha
-                            return; //retorna para o início do método
+                            labelCONF.Image = Properties.Resources.x;
+                            if (MessageBox.Show("As senhas não conferem!") == DialogResult.OK)
+                            {
+                                labelCONF.Image = Properties.Resources.verificar__1_;
+                                textBoxSENHA.Focus(); //foca no campo senha
+                                return; //retorna para o início do método
+                            }
                         }
                         
                     }
@@ -243,6 +251,20 @@ namespace UC12_usuario
             idalterar = dataGridUSUARIOS.CurrentRow.Cells[0].Value.ToString();
             buttonCADASTRO.Text = "Salvar"; //altera o texto do botão para Cadastrar
 
+        }
+
+        private void labelPESQUISAR_Click(object sender, EventArgs e)
+        {
+            pesquisar = " WHERE nome LIKE '%" + textBoxPESQUISAR.Text +"%'"; //variável pesquisar recebe o valor do campo pesquisar
+
+            preecheDataGridUSUARIOS(); //chama o método para preencher o DataGridView com os dados do banco de dados
+            pesquisar = ""; //limpa a variável pesquisar
+        }
+
+        private void textBoxPESQUISAR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Para ativar esse botão, precisa ir no icone RAIO (Eventos) e porcurar por KeyPress
+            labelPESQUISAR_Click(sender, e); //chama o método labelPESQUISAR_Click quando o usuário pressiona a tecla enter
         }
     }
 }

@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.buttonCADASTRO = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelCONF = new System.Windows.Forms.Label();
             this.textBoxNOME = new System.Windows.Forms.TextBox();
             this.textBoxEMAIL = new System.Windows.Forms.TextBox();
             this.textBoxSENHA = new System.Windows.Forms.TextBox();
@@ -41,6 +37,15 @@
             this.dataGridUSUARIOS = new System.Windows.Forms.DataGridView();
             this.buttonDEL = new System.Windows.Forms.Button();
             this.buttonALTERAR = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.directorySearcher2 = new System.DirectoryServices.DirectorySearcher();
+            this.textBoxPESQUISAR = new System.Windows.Forms.TextBox();
+            this.labelPESQUISAR = new System.Windows.Forms.Label();
+            this.labelCONF = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUSUARIOS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,39 +58,6 @@
             this.buttonCADASTRO.Text = "Cadastrar";
             this.buttonCADASTRO.UseVisualStyleBackColor = true;
             this.buttonCADASTRO.Click += new System.EventHandler(this.buttonCADASTRO_Click);
-            // 
-            // label1
-            // 
-            this.label1.Image = global::UC12_usuario.Properties.Resources.img_USUARIO;
-            this.label1.Location = new System.Drawing.Point(136, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = " ";
-            // 
-            // label2
-            // 
-            this.label2.Image = global::UC12_usuario.Properties.Resources.o_email;
-            this.label2.Location = new System.Drawing.Point(136, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 37);
-            this.label2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.Image = global::UC12_usuario.Properties.Resources.senha;
-            this.label3.Location = new System.Drawing.Point(136, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 29);
-            this.label3.TabIndex = 3;
-            // 
-            // labelCONF
-            // 
-            this.labelCONF.Image = global::UC12_usuario.Properties.Resources.verificar__1_;
-            this.labelCONF.Location = new System.Drawing.Point(134, 154);
-            this.labelCONF.Name = "labelCONF";
-            this.labelCONF.Size = new System.Drawing.Size(31, 30);
-            this.labelCONF.TabIndex = 4;
             // 
             // textBoxNOME
             // 
@@ -124,7 +96,7 @@
             "Funcionário",
             "Administrador",
             "Cliente"});
-            this.comboBoxPERMISSAO.Location = new System.Drawing.Point(227, 209);
+            this.comboBoxPERMISSAO.Location = new System.Drawing.Point(197, 184);
             this.comboBoxPERMISSAO.Name = "comboBoxPERMISSAO";
             this.comboBoxPERMISSAO.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPERMISSAO.TabIndex = 12;
@@ -160,11 +132,85 @@
             this.buttonALTERAR.UseVisualStyleBackColor = true;
             this.buttonALTERAR.Click += new System.EventHandler(this.buttonALTERAR_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(136, 187);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Permissão";
+            // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
+            // directorySearcher2
+            // 
+            this.directorySearcher2.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher2.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher2.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
+            // textBoxPESQUISAR
+            // 
+            this.textBoxPESQUISAR.Location = new System.Drawing.Point(180, 223);
+            this.textBoxPESQUISAR.Name = "textBoxPESQUISAR";
+            this.textBoxPESQUISAR.Size = new System.Drawing.Size(261, 20);
+            this.textBoxPESQUISAR.TabIndex = 17;
+            this.textBoxPESQUISAR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPESQUISAR_KeyPress);
+            // 
+            // labelPESQUISAR
+            // 
+            this.labelPESQUISAR.Image = global::UC12_usuario.Properties.Resources.procurar;
+            this.labelPESQUISAR.Location = new System.Drawing.Point(447, 212);
+            this.labelPESQUISAR.Name = "labelPESQUISAR";
+            this.labelPESQUISAR.Size = new System.Drawing.Size(43, 41);
+            this.labelPESQUISAR.TabIndex = 18;
+            this.labelPESQUISAR.Click += new System.EventHandler(this.labelPESQUISAR_Click);
+            // 
+            // labelCONF
+            // 
+            this.labelCONF.Image = global::UC12_usuario.Properties.Resources.verificar__1_;
+            this.labelCONF.Location = new System.Drawing.Point(134, 154);
+            this.labelCONF.Name = "labelCONF";
+            this.labelCONF.Size = new System.Drawing.Size(31, 30);
+            this.labelCONF.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.Image = global::UC12_usuario.Properties.Resources.senha;
+            this.label3.Location = new System.Drawing.Point(136, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 29);
+            this.label3.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.Image = global::UC12_usuario.Properties.Resources.o_email;
+            this.label2.Location = new System.Drawing.Point(134, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 37);
+            this.label2.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.Image = global::UC12_usuario.Properties.Resources.img_USUARIO;
+            this.label1.Location = new System.Drawing.Point(136, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 29);
+            this.label1.TabIndex = 1;
+            this.label1.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 543);
+            this.Controls.Add(this.labelPESQUISAR);
+            this.Controls.Add(this.textBoxPESQUISAR);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonALTERAR);
             this.Controls.Add(this.buttonDEL);
             this.Controls.Add(this.dataGridUSUARIOS);
@@ -202,6 +248,11 @@
         private System.Windows.Forms.DataGridView dataGridUSUARIOS;
         private System.Windows.Forms.Button buttonDEL;
         private System.Windows.Forms.Button buttonALTERAR;
+        private System.Windows.Forms.Label label4;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
+        private System.DirectoryServices.DirectorySearcher directorySearcher2;
+        private System.Windows.Forms.TextBox textBoxPESQUISAR;
+        private System.Windows.Forms.Label labelPESQUISAR;
     }
 }
 
